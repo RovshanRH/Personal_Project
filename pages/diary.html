@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Дневник</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <header>
+        <header class="d-flex flex-column align-items-center bg-primary bg-opacity-25 py-4">
+            <img src="../images/icons/logo.png" alt="logo" style="height: 200px; width: 200px" />
+            <h1>Ходжакулыев Ровшан Рашидович</h1>
+        </header>
+        <nav class="nav justify-content-center border-bottom border-top py-1 mb-4 d-flex align-items-center">
+            <a class="nav-link" href="../index.html" aria-current="page">Главная</a>
+            <a class="nav-link" href="projects.html">Проекты</a>
+            <a class="nav-link" href="#">Дневник</a>
+            <a class="nav-link" href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2 class="text-center mt-5">Мой учебный процесс</h2>
+            <div class="mt-5 d-flex flex-column justify-content-center align-items-center">
+                <div class="card w-100" id="diaryEntries">
+                    <div class="card-body d-flex flex-column">
+                        <div class="card-text d-flex justify-content-between w-100 mb-2">
+                            <span>15 дек.</span>
+                            <span>Вёрстка сайта-портфолио студента</span>
+                            <span class="text-success">✓</span>
+                        </div>
+                        <div class="card-text d-flex justify-content-between w-100 mb-2">
+                            <span>15 дек.</span>
+                            <span>Создание мегапроекта за 1 час</span>
+                            <span class="text-success">✓</span>
+                        </div>
+                        <div class="card-text d-flex justify-content-between w-100 mb-2">
+                            <span>15 дек.</span>
+                            <span>Жёсткий инфлюенсинг в стартапах</span>
+                            <span class="text-success">✓</span>
+                        </div>
+                        <div class="card-text d-flex justify-content-between w-100 mb-2">
+                            <span>15 дек.</span>
+                            <span>Магазин игрушек на Реакте</span>
+                            <span class="text-success">✓</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Модальное окно для добавления записи -->
+            <div class="modal fade" id="addEntryModal" tabindex="-1" aria-labelledby="addEntryModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addEntryModalLabel">Добавить новую запись</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="newEntryForm">
+                                <div class="mb-3">
+                                    <label for="entryDate" class="form-label">Дата</label>
+                                    <input type="date" class="form-control" id="entryDate" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="entryDescription" class="form-label">Описание</label>
+                                    <textarea class="form-control" id="entryDescription" rows="3" required placeholder="Опишите, что вы изучили или сделали..."></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="entryStatus" class="form-label">Статус</label>
+                                    <select class="form-select" id="entryStatus">
+                                        <option value="completed">✓ Завершено</option>
+                                        <option value="in-progress">🔄 В процессе</option>
+                                        <option value="planned">📅 Запланировано</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                            <button type="button" class="btn btn-primary" id="saveEntryBtn">Сохранить запись</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <h2 class="text-center">Текущие курсы</h2>
+                <div class="card">
+                    <div class="card-text">
+                        <div class="col-md-12 ">
+                            <div class="mb-3 p-4">
+                                <div class="d-flex justify-content-center mb-1 d-flex flex-column">
+                                </div>
+                                
+                                <div class="col-md-12">
+                                    <!-- HTML/CSS -->
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span>HTML/CSS</span>
+                                            <span class="text-primary">90%</span>
+                                        </div>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- JavaScript -->
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span>JavaScript</span>
+                                            <span class="text-primary">10%</span>
+                                        </div>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 10%;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bootstrap -->
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span>Bootstrap</span>
+                                            <span class="text-primary">5%</span>
+                                        </div>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 5%;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- React -->
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span>React</span>
+                                            <span class="text-primary">5%</span>
+                                        </div>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 5%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2 mt-4 mb-5 col-6 mx-auto">
+                <button
+                    type="button"
+                    name=""
+                    id="addEntryBtn"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addEntryModal"
+                >
+                    Оставить запись
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-5">
+        <p class="text-center">&copy; 2025 <a href="contacts.html" style="text-decoration: none;"
+                class="text-primary">Контакты</a></p>
+    </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Устанавливаем сегодняшнюю дату по умолчанию
+        document.getElementById('entryDate').valueAsDate = new Date();
+
+        // Обработчик сохранения записи
+        document.getElementById('saveEntryBtn').addEventListener('click', function() {
+            const date = document.getElementById('entryDate').value;
+            const description = document.getElementById('entryDescription').value;
+            const status = document.getElementById('entryStatus').value;
+
+            if (!date || !description) {
+                alert('Пожалуйста, заполните все обязательные поля');
+                return;
+            }
+
+            // Форматируем дату
+            const formattedDate = new Date(date).toLocaleDateString('ru-RU', {
+                day: 'numeric',
+                month: 'short'
+            });
+
+            // Создаем элемент для новой записи
+            const newEntry = document.createElement('div');
+            newEntry.className = 'card-text d-flex justify-content-between w-100 mb-2';
+            
+            // Определяем иконку статуса
+            let statusIcon = '';
+            switch(status) {
+                case 'completed':
+                    statusIcon = '<span class="text-success">✓</span>';
+                    break;
+                case 'in-progress':
+                    statusIcon = '<span class="text-warning">🔄</span>';
+                    break;
+                case 'planned':
+                    statusIcon = '<span class="text-secondary">📅</span>';
+                    break;
+            }
+
+            newEntry.innerHTML = `
+                <span>${formattedDate}</span>
+                <span>${description}</span>
+                ${statusIcon}
+            `;
+
+            // Добавляем новую запись в начало списка
+            const diaryEntries = document.getElementById('diaryEntries').querySelector('.card-body');
+            diaryEntries.insertBefore(newEntry, diaryEntries.firstChild);
+
+            // Закрываем модальное окно и очищаем форму
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addEntryModal'));
+            modal.hide();
+            document.getElementById('newEntryForm').reset();
+            document.getElementById('entryDate').valueAsDate = new Date();
+        });
+
+        // Очистка формы при закрытии модального окна
+        document.getElementById('addEntryModal').addEventListener('hidden.bs.modal', function () {
+            document.getElementById('newEntryForm').reset();
+            document.getElementById('entryDate').valueAsDate = new Date();
+        });
+    </script>
+</body>
+
+</html>
