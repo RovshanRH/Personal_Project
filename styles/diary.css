@@ -1,0 +1,124 @@
+/* Diary page specific styles */
+.diary-container {
+  margin: var(--space-lg) 0;
+}
+
+.diary-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.diary-entry:last-child {
+  border-bottom: none;
+}
+
+.status-completed {
+  color: #10b981;
+  font-weight: bold;
+}
+
+.status-in-progress {
+  color: #f59e0b;
+}
+
+.status-planned {
+  color: #6b7280;
+}
+
+/* Courses section */
+.courses-section {
+  margin: var(--space-xl) 0;
+}
+
+.courses-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.course-item {
+  margin-bottom: var(--space-lg);
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+
+.course-percent {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Button center */
+.button-center {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-lg) 0;
+}
+
+/* Projects modal specific */
+.tech-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tech-list li {
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tech-list li:last-child {
+  border-bottom: none;
+}
+
+.modal-images {
+  display: flex;
+  gap: var(--space-md);
+  margin: var(--space-md) 0;
+  flex-wrap: wrap;
+}
+
+.image-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.image-column.full-width {
+  flex: 0 0 100%;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.modal-image:hover {
+  transform: scale(1.05);
+}
+
+.repo-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-left: var(--space-xs);
+}
+
+.repo-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive diary entries */
+@media (max-width: 480px) {
+  .diary-entry {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+}
