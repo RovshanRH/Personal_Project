@@ -18,8 +18,5 @@
   "bugs": {
     "url": "https://github.com/RovshanRH/Personal_Project/issues"
   },
-  "homepage": "https://github.com/RovshanRH/Personal_Project#readme",
-  "dependencies": {
-    "bootstrap": "^5.3.8"
-  }
+  "homepage": "https://github.com/RovshanRH/Personal_Project#readme"
 }
