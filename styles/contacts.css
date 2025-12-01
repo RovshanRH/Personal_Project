@@ -46,6 +46,31 @@
   gap: var(--space-lg);
 }
 
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: var(--space-xs);
+  display: block;
+}
+input[aria-invalid="true"] {
+  border-color: #d93025;
+  outline-color: #d93025;
+}
+
+legend {
+  margin-left: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  box-sizing: border-box;
+  /* background-color: white; */
+  /* border-radius: var(--border-radius); */
+  font-weight: 600;
+}
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 @media (min-width: 768px) {
   .contact-card {
     grid-template-columns: 1fr 1fr;

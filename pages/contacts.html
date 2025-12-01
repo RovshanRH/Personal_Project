@@ -17,35 +17,55 @@
             <h1>Ходжакулыев Ровшан Рашидович</h1>
         </header>
         <nav class="main-nav">
-            <a class="nav-link" href="../index.html" aria-current="page">Главная</a>
+            <a class="nav-link" href="../index.html" >Главная</a>
             <a class="nav-link" href="projects.html">Проекты</a>
             <a class="nav-link" href="diary.html">Дневник</a>
-            <a class="nav-link active" href="#">Контакты</a>
+            <a class="nav-link" href="#" aria-current="page">Контакты</a>
         </nav>
     </header>
     
     <main>
         <div class="container">
             <h2 class="section-title">Свяжитесь со мной</h2>
-            <div class="card">
+            <fieldset class="card">
+                <legend>Контакты</legend>
                 <div class="card-content">
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name" class="form-label">Имя</label>
-                            <input type="text" class="form-control" id="name" required />
+                            <input type="text" class="form-control" id="name" placeholder="Имя пользователя" required aria-describedby="nameHelp" aria-invalid="true" />
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" required />
+                            <input type="email" class="form-control" id="email" placeholder="example@mail.com" required aria-describedby="emailHelp" aria-invalid="true" />
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Сообщение</label>
-                            <textarea class="form-control" id="message" rows="3" required></textarea>
+                            <textarea class="form-control" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-center">Отправить</button>
                     </form>
+                    <span class="error-message" id="emailHelp">Ошибка: Введите email в формате example@site.com</span>
+                    <script>
+                        const emailInput = document.getElementById('email');
+                            const errorSpan = document.getElementById('emailHelp');
+
+                            function validateEmail() {
+                                const isValid = emailInput.checkValidity(); // Проверка браузером
+
+                                if (!isValid) {
+                                    emailInput.setAttribute('aria-invalid', 'true');
+                                    errorSpan.style.display = 'block';
+                                } else {
+                                    emailInput.setAttribute('aria-invalid', 'false');
+                                    errorSpan.style.display = 'none';
+                                }
+                            }
+
+                            emailInput.addEventListener('blur', validateEmail);
+                    </script>
                 </div>
-            </div>
+            </fieldset>
             
             <h2 class="section-title">Контакты</h2>
             <div class="card">
@@ -71,6 +91,7 @@
             alert('Сообщение отправлено! (Это демо-версия)');
             this.reset();
         });
+
     </script>
 </body>
 </html>

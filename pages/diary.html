@@ -17,9 +17,9 @@
             <h1>Ходжакулыев Ровшан Рашидович</h1>
         </header>
         <nav class="main-nav">
-            <a class="nav-link" href="../index.html" aria-current="page">Главная</a>
+            <a class="nav-link" href="../index.html" >Главная</a>
             <a class="nav-link" href="projects.html">Проекты</a>
-            <a class="nav-link active" href="#">Дневник</a>
+            <a class="nav-link" href="#" aria-current="page">Дневник</a>
             <a class="nav-link" href="contacts.html">Контакты</a>
         </nav>
     </header>
@@ -61,7 +61,7 @@
                         <h5 class="modal-title">Добавить новую запись</h5>
                         <button type="button" class="modal-close">&times;</button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" aria-live="polite">
                         <form id="newEntryForm">
                             <div class="form-group">
                                 <label for="entryDate" class="form-label">Дата</label>
@@ -142,7 +142,7 @@
             </div>
             
             <div class="button-center">
-                <button type="button" name="" id="addEntryBtn" class="btn btn-primary">
+                <button type="button" name="" id="addEntryBtn" class="btn btn-primary" aria-expanded="false">
                     Оставить запись
                 </button>
             </div>
