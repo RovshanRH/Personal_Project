@@ -83,6 +83,21 @@
   padding-top: var(--space-md);
   border-top: 1px solid var(--border-color);
 }
+.icon {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
 
 /* Responsive gallery */
 @media (max-width: 768px) {

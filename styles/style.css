@@ -1,6 +1,7 @@
 :root {
   color-scheme: light dark;
   --primary-color: #2563eb;
+  --secondary-color: #d1e1ff;
   --primary-light: rgba(37, 99, 235, 0.1);
   --text-color: #0b1020;
   --bg-color: #f8fafc;
@@ -95,14 +96,26 @@ body {
   color: var(--text-color);
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--border-radius);
-  transition: all 0.2s ease;
+  /* transition: all 0.2s ease; */
+  transition: transform 0.2s ease;
+
+}
+.nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+  background-color: var(--secondary-color);
+  transform: scale(1.1);
+
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover {
   background: var(--primary-light);
   color: var(--primary-color);
 }
-
+.nav-link[aria-current="page"] {
+  background: var(--primary-color);
+  color: white;
+}
 /* Main content */
 main {
   flex: 1;
@@ -362,12 +375,19 @@ a, button, input, textarea {
   background: var(--primary-color);
   color: white;
   padding: var(--space-sm);
-  z-index: 1000;
+  z-index: 1;
   text-decoration: none;
+  transition: transform 0.3s ease;
+  border-radius: var(--border-radius);
 }
 
 .skip-link:focus {
   top: 0;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+  background-color: var(--secondary-color);
+  transform: scale(1.1);
+  color: var(--text-color);
 }
 
 /* Крупные цели на устройствах с pointer:coarse */
