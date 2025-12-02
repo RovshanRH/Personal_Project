@@ -5,8 +5,9 @@
     <title>Проекты</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../styles/style.css" />
-    <link rel="stylesheet" href="../styles/projects.css" />
+    <!-- <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/projects.css" /> -->
+    <link rel="stylesheet" href="../styles/bundle.min.css">
 
 </head>
 
@@ -16,7 +17,7 @@
             <img src="../images/logo.png" alt="logo" class="header-logo" />
             <h1>Ходжакулыев Ровшан Рашидович</h1>
         </div>
-        <nav class="main-nav" role="navigation">
+        <nav class="main-nav">
             <a class="nav-link" href="../index.html">Главная</a>
             <a class="nav-link" href="#" aria-current="page">Проекты</a>
             <a class="nav-link" href="diary.html">Дневник</a>
@@ -40,13 +41,12 @@
                             HTML, CSS и Bootstrap. Здесь я представляю свои проекты,
                             навыки и контактную информацию.
                         </p>
-                        <button type="button" class="btn btn-primary btn-lg modal-trigger" data-modal="modal1" role="button">
+                        <button type="button" class="btn btn-primary btn-lg modal-trigger" data-modal="modal1">
                             Подробнее
                         </button>
                     </div>
                 </div>
 
-                <!-- Проект 2 -->
                 <div class="project-card">
                     <div class="card-header">
                         <h3>Калькулятор матриц</h3>
@@ -59,12 +59,11 @@
                             мои навыки в области работы с
                             математическими концепциями.
                         </p>
-                        <button type="button" class="btn btn-primary btn-lg modal-trigger" data-modal="modal2" role="button">
+                        <button type="button" class="btn btn-primary btn-lg modal-trigger" data-modal="modal2">
                             Подробнее
                         </button>
                     </div>
                 </div>
-
                 <!-- Проект 3 -->
                 <div class="project-card">
                     <div class="card-header">
@@ -76,7 +75,7 @@
                             Юмористический сайт, созданный с использованием
                             HTML, CSS
                         </p>
-                        <button type="button" class="btn btn-primary btn-lg modal-trigger" data-modal="modal3" role="button">
+                        <button type="button" class="btn btn-primary btn-lg modal-trigger" data-modal="modal3">
                             Подробнее
                         </button>
                     </div>
@@ -89,14 +88,14 @@
         id="modal1"
         role="dialog"
         aria-modal="true"
-        aria-labelledby="modal1-title"
+        aria-labelledby="modal-title"
         tabindex="1">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Сайт-портфолио</h5>
                     <button type="button" class="modal-close" aria-label="Закрыть диалоговое окно">
                         <span class="icon" aria-hidden="true">&times;</span>
-                        <span class="sr-only" aria-label="Закрыть диалоговое окно">Закрыть диалоговое окно</span>
+                        <span class="sr-only">Закрыть диалоговое окно</span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -134,7 +133,7 @@
                     </div>
                 </div>
                 <div class="modal-actions">
-                    <button type="button" class="btn btn-secondary modal-close-btn" aria-label="Закрыть диалоговое окно" role="button">Закрыть</button>
+                    <button type="button" class="btn btn-secondary modal-close-btn" aria-label="Закрыть диалоговое окно">Закрыть</button>
                 </div>
             </div>
         </div>
@@ -181,7 +180,7 @@
                     </div>
                 </div>
                 <div class="modal-actions">
-                    <button type="button" class="btn btn-secondary modal-close-btn" role="button">Закрыть</button>
+                    <button type="button" class="btn btn-secondary modal-close-btn">Закрыть</button>
                 </div>
             </div>
         </div>
@@ -226,7 +225,7 @@
                     </div>
                 </div>
                 <div class="modal-actions">
-                    <button type="button" class="btn btn-secondary modal-close-btn" role="button">Закрыть</button>
+                    <button type="button" class="btn btn-secondary modal-close-btn">Закрыть</button>
                 </div>
             </div>
         </div>

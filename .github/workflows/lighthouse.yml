@@ -1,0 +1,22 @@
+name: Simple Lighthouse Test
+
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+jobs:
+  lighthouse:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://rovshanrh.github.io/Personal_Project/
+            https://rovshanrh.github.io/Personal_Project/pages/contacts.html
+            https://rovshanrh.github.io/Personal_Project/pages/diary.html
+            https://rovshanrh.github.io/Personal_Project/pages/projects.html
+          uploadArtifacts: true

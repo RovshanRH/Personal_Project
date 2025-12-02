@@ -5,29 +5,31 @@
   <title>Главная</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="./styles/style.css">
-  <link rel="stylesheet" href="./styles/index.css">
+  <!-- <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/index.css"> -->
+  <link rel="stylesheet" href="./styles/bundle.min.css">
 </head>
 
 <body>
   <a href="#main" class="skip-link">
     <span class="icon" aria-hidden="true">&mapstodown;</span>
-    <span class="sr-only" aria-label="Перейти к основному содержимому">Перейти к основному содержимому</span>
+    <span class="sr-only">Перейти к основному содержимому</span>
   </a>
-  <header class="site-header">
-    <figure class="hero__image">
-      <img src="./images/logo.png" alt="Портрет студента" loading="lazy" width="200" height="200">
-    </figure>
-    <h1>Ходжакулыев Ровшан Рашидович</h1>
+  <header>
+    <div class="site-header">
+      <img src="../images/logo.png" alt="logo" class="header-logo" />
+      <h1>Ходжакулыев Ровшан Рашидович</h1>
+    </div>
+    <nav class="main-nav">
+      <a class="nav-link" href="#" aria-current="page">Главная</a>
+      <a class="nav-link" href="./pages/projects.html">Проекты</a>
+      <a class="nav-link" href="../pages/diary.html">Дневник</a>
+      <a class="nav-link" href="../pages/contacts.html">Контакты</a>
+    </nav>
   </header>
 
 
-  <nav class="main-nav" aria-label="Основная навигация" role="navigation">
-    <a class="nav-link" href="#" aria-current="page">Главная</a>
-    <a class="nav-link" href="./pages/projects.html">Проекты</a>
-    <a class="nav-link" href="./pages/diary.html">Дневник</a>
-    <a class="nav-link" href="./pages/contacts.html">Контакты</a>
-  </nav>
+  
   <!-- Добавьте в начало body -->
 
   <main>
@@ -49,7 +51,7 @@
               дневником и контактной информацией.
             </p>
             <div class="button-group">
-              <button type="button" name="downloadResume" id="downloadResume" class="btn btn-primary" role="button">
+              <button type="button" name="downloadResume" id="downloadResume" class="btn btn-primary">
                 Скачать резюме
               </button>
             </div>
@@ -110,7 +112,7 @@
         <h2 class="section-title">Мои проекты</h2>
         <div class="projects-grid">
 
-          <a href="./pages/projects.html" role="link">
+          <a href="./pages/projects.html">
             <div class="project-card">
               <div class="card-content">
                 <h3 class="card-title">Сайт-портфолио</h3>
@@ -119,7 +121,7 @@
             </div>
           </a>
 
-          <a href="./pages/projects.html" role="link">
+          <a href="./pages/projects.html">
             <div class="project-card">
               <div class="card-content">
                 <h3 class="card-title">Калькулятор матриц</h3>
@@ -128,7 +130,7 @@
             </div>
           </a>
 
-          <a href="./pages/projects.html" role="link">
+          <a href="./pages/projects.html">
             <div class="project-card">
               <div class="card-content">
                 <h3 class="card-title">Юмористическая страница для школы</h3>

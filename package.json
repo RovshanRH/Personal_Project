@@ -1,13 +1,49 @@
 {
   "name": "personal_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personal portfolio project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    
     "clean": "rm -rf node_modules",
     "reinstall": "rm -rf node_modules && npm install",
-    "clean-install": "npm run clean && npm install"
+    "clean-install": "npm run clean && npm install",
+    
+    "lhci:collect": "lhci collect",
+    "lhci:assert": "lhci assert",
+    "lhci:upload": "lhci upload",
+    "lhci": "lhci autorun",
+    
+    "build:css": "cleancss -O1 -o styles/bundle.min.css styles/*.css styles/*.min.css",
+    "minify:css": "npm run build:css",
+    
+    "build": "npm run build:css && echo '✅ CSS минифицирован'",
+    "build:prod": "npm run build:css && npm run minify:html",
+    
+    "minify:html": "node scripts/minify-html.js",
+    
+    "dev": "npx serve . -p 8080",
+    "start": "npm run dev",
+    "serve": "npx serve . -p 3000",
+    
+    "lh:local": "npx serve . -p 8080 & sleep 3 && lhci autorun --collect.url=http://localhost:8080 --preset=desktop",
+    "lh:quick": "npx lighthouse http://localhost:8080 --output html --output-path ./lighthouse-report.html --preset=desktop",
+    "audit": "npm run lh:local",
+    
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d . -b gh-pages",
+    "deploy:dist": "gh-pages -d dist -b gh-pages",
+    "deploy:force": "gh-pages -d . -b gh-pages --force",
+    
+    "optimize:images": "node scripts/optimize-images.js",
+    
+    "size": "node scripts/check-size.js",
+    
+    "release": "npm run build:prod && npm run deploy",
+    
+    "check-updates": "npx npm-check-updates",
+    "update": "npx npm-check-updates -u && npm install"
   },
   "repository": {
     "type": "git",
@@ -19,7 +55,13 @@
     "url": "https://github.com/RovshanRH/Personal_Project/issues"
   },
   "homepage": "https://github.com/RovshanRH/Personal_Project#readme",
-  "dependencies": {
-    "bootstrap": "^5.3.8"
+  "devDependencies": {
+    "@lhci/cli": "^0.11.0",
+    "gh-pages": "^6.3.0",
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0",
+    "serve": "^14.2.3",
+    "lighthouse": "^11.0.0",
+    "npm-check-updates": "^16.14.20"
   }
 }
