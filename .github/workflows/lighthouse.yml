@@ -1,4 +1,4 @@
-name: Lighthouse Test with HTML Reports
+name: Lighthouse Test with Custom Config
 
 on:
   pull_request:
@@ -6,64 +6,89 @@ on:
     types: [closed]
 
 jobs:
-  lighthouse-html:
+  lighthouse:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout
+      - name: Checkout (with config file)
         uses: actions/checkout@v4
-        
+        with:
+          fetch-depth: 0  # Получаем всю историю
+          
+      - name: Verify lighthouserc.json exists
+        run: |
+          echo "Checking for lighthouserc.json..."
+          if [ -f "lighthouserc.json" ]; then
+            echo "✅ lighthouserc.json found"
+            echo "Content preview:"
+            head -30 lighthouserc.json
+          else
+            echo "❌ lighthouserc.json not found"
+            exit 1
+          fi
+          
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
           
-      - name: Install Lighthouse
-        run: npm install -g lighthouse
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli
         
-      - name: Create reports directory
-        run: mkdir -p lighthouse-reports
-        
-      - name: Test Home Page
+      - name: Run Lighthouse with custom config
+        id: lhci
         run: |
-          lighthouse \
-            https://rovshanrh.github.io/Personal_Project/ \
-            --output=html \
-            --output-path=./lighthouse-reports/home.html \
-            --chrome-flags="--no-sandbox --headless" \
-            --quiet
-            
-      - name: Test Contacts Page
+          # Запускаем Lighthouse CI с вашим конфигом
+          lhci collect --config=./lighthouserc.json
+          
+          # Генерируем HTML отчеты из собранных данных
+          lhci upload --config=./lighthouserc.json
+          
+      - name: Generate individual HTML reports
         run: |
-          lighthouse \
-            https://rovshanrh.github.io/Personal_Project/pages/contacts.html \
-            --output=html \
-            --output-path=./lighthouse-reports/contacts.html \
-            --chrome-flags="--no-sandbox --headless" \
-            --quiet
-            
-      - name: Test Diary Page
-        run: |
-          lighthouse \
-            https://rovshanrh.github.io/Personal_Project/pages/diary.html \
-            --output=html \
-            --output-path=./lighthouse-reports/diary.html \
-            --chrome-flags="--no-sandbox --headless" \
-            --quiet
-            
-      - name: Test Projects Page
-        run: |
-          lighthouse \
-            https://rovshanrh.github.io/Personal_Project/pages/projects.html \
-            --output=html \
-            --output-path=./lighthouse-reports/projects.html \
-            --chrome-flags="--no-sandbox --headless" \
-            --quiet
-            
+          # Проверяем созданные отчеты
+          echo "Generated reports in lighthouse-reports/:"
+          ls -la lighthouse-reports/ || echo "No reports directory yet"
+          
+          # Если нужны отдельные HTML файлы
+          if [ -d "lighthouse-reports" ]; then
+            # Конвертируем JSON в HTML для каждого отчета
+            for json_file in lighthouse-reports/*.json; do
+              if [ -f "$json_file" ]; then
+                filename=$(basename "$json_file" .report.json)
+                echo "Converting $filename.json to HTML..."
+                
+                # Используем lighthouse для конвертации
+                npx lighthouse @$json_file \
+                  --output=html \
+                  --output-path="./lighthouse-reports/$filename.html" \
+                  --chrome-flags="--no-sandbox --headless" \
+                  --quiet || true
+              fi
+            done
+          fi
+          
       - name: Upload HTML Reports
         uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-html-reports
+          name: lighthouse-reports
           path: lighthouse-reports/
           retention-days: 30
+          
+      - name: Show summary
+        run: |
+          echo "## 📊 Lighthouse Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Tests completed using custom lighthouserc.json" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -d "lighthouse-reports" ]; then
+            echo "**Generated HTML reports:**" >> $GITHUB_STEP_SUMMARY
+            for html_file in lighthouse-reports/*.html; do
+              if [ -f "$html_file" ]; then
+                filename=$(basename "$html_file")
+                echo "- $filename" >> $GITHUB_STEP_SUMMARY
+              fi
+            done
+          fi
