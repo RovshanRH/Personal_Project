@@ -1,4 +1,4 @@
-name: Simple Lighthouse Test
+name: Lighthouse Test with HTML Reports
 
 on:
   pull_request:
@@ -6,17 +6,64 @@ on:
     types: [closed]
 
 jobs:
-  lighthouse:
+  lighthouse-html:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     
     steps:
-      - name: Run Lighthouse
-        uses: treosh/lighthouse-ci-action@v11
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          urls: |
-            https://rovshanrh.github.io/Personal_Project/
-            https://rovshanrh.github.io/Personal_Project/pages/contacts.html
-            https://rovshanrh.github.io/Personal_Project/pages/diary.html
-            https://rovshanrh.github.io/Personal_Project/pages/projects.html
-          uploadArtifacts: true
+          node-version: '18'
+          
+      - name: Install Lighthouse
+        run: npm install -g lighthouse
+        
+      - name: Create reports directory
+        run: mkdir -p lighthouse-reports
+        
+      - name: Test Home Page
+        run: |
+          lighthouse \
+            https://rovshanrh.github.io/Personal_Project/ \
+            --output=html \
+            --output-path=./lighthouse-reports/home.html \
+            --chrome-flags="--no-sandbox --headless" \
+            --quiet
+            
+      - name: Test Contacts Page
+        run: |
+          lighthouse \
+            https://rovshanrh.github.io/Personal_Project/pages/contacts.html \
+            --output=html \
+            --output-path=./lighthouse-reports/contacts.html \
+            --chrome-flags="--no-sandbox --headless" \
+            --quiet
+            
+      - name: Test Diary Page
+        run: |
+          lighthouse \
+            https://rovshanrh.github.io/Personal_Project/pages/diary.html \
+            --output=html \
+            --output-path=./lighthouse-reports/diary.html \
+            --chrome-flags="--no-sandbox --headless" \
+            --quiet
+            
+      - name: Test Projects Page
+        run: |
+          lighthouse \
+            https://rovshanrh.github.io/Personal_Project/pages/projects.html \
+            --output=html \
+            --output-path=./lighthouse-reports/projects.html \
+            --chrome-flags="--no-sandbox --headless" \
+            --quiet
+            
+      - name: Upload HTML Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-html-reports
+          path: lighthouse-reports/
+          retention-days: 30
