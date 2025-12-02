@@ -1,0 +1,74 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Кэширование ДО установки зависимостей
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: |
+          npm install -g @lhci/cli
+          # Если есть package.json
+          if [ -f "package.json" ]; then
+            npm ci
+          fi
+
+      - name: Build site
+        run: |
+          # Ваши команды сборки
+          if [ -f "package.json" ]; then
+            npm run build
+          fi
+
+      # Кэширование сборки
+      - name: Cache build
+        uses: actions/cache@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-build-${{ github.sha }}
+
+      - name: Start local server
+        run: |
+          if [ -d "dist" ]; then
+            npx serve -s dist -l 8080 &
+          else
+            npx serve -s . -l 8080 &
+          fi
+          sleep 5
+        env:
+          NODE_ENV: production
+
+      - name: Run Lighthouse CI
+        run: |
+          lhci autorun --config=./lighthouserc.js --upload.target=temporary-public-storage
+        
+      # Деплой на GitHub Pages (только для main и dev)
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          # Разные директории для dev/main
+          destination_dir: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}

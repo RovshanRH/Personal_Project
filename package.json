@@ -7,7 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf node_modules",
     "reinstall": "rm -rf node_modules && npm install",
-    "clean-install": "npm run clean && npm install"
+    "clean-install": "npm run clean && npm install",
+    "lhci:collect": "lhci collect",
+    "lhci:assert": "lhci assert",
+    "lhci:upload": "lhci upload",
+    "lhci": "lhci autorun"
   },
   "repository": {
     "type": "git",
@@ -18,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/RovshanRH/Personal_Project/issues"
   },
-  "homepage": "https://github.com/RovshanRH/Personal_Project#readme"
+  "homepage": "https://github.com/RovshanRH/Personal_Project#readme",
+  "devDependencies": {
+    "@lhci/cli": "^0.11.0",
+    "gh-pages": "^6.3.0"
+  }
 }
