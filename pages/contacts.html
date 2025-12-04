@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/contacts.css" /> -->
-  <link rel="stylesheet" href="../styles/bundle.min.css">
+    <!-- <link rel="stylesheet" href="../styles/bundle.min.css"> -->
+    <link rel="stylesheet" href="../styles/contacts.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/contacts.js" defer></script>
+
 
 
 </head>
@@ -18,13 +22,13 @@
             <img src="../images/logo.png" alt="logo" class="header-logo" />
             <h1>Ходжакулыев Ровшан Рашидович</h1>
         </div>
-        <nav class="main-nav">
-            <a class="nav-link" href="../index.html" >Главная</a>
-            <a class="nav-link" href="projects.html">Проекты</a>
-            <a class="nav-link" href="diary.html">Дневник</a>
-            <a class="nav-link" href="#" aria-current="page">Контакты</a>
-        </nav>
     </header>
+    <nav class="main-nav">
+        <a class="nav-link" href="../index.html" >Главная</a>
+        <a class="nav-link" href="projects.html">Проекты</a>
+        <a class="nav-link" href="diary.html">Дневник</a>
+        <a class="nav-link" href="#" aria-current="page">Контакты</a>
+    </nav>
     
     <main>
         <div class="container">
@@ -48,24 +52,7 @@
                         <button type="submit" class="btn btn-primary btn-center">Отправить</button>
                     </form>
                     <span class="error-message" id="emailHelp">Ошибка: Введите email в формате example@site.com</span>
-                    <script>
-                        const emailInput = document.getElementById('email');
-                            const errorSpan = document.getElementById('emailHelp');
-
-                            function validateEmail() {
-                                const isValid = emailInput.checkValidity(); // Проверка браузером
-
-                                if (!isValid) {
-                                    emailInput.setAttribute('aria-invalid', 'true');
-                                    errorSpan.style.display = 'block';
-                                } else {
-                                    emailInput.setAttribute('aria-invalid', 'false');
-                                    errorSpan.style.display = 'none';
-                                }
-                            }
-
-                            emailInput.addEventListener('blur', validateEmail);
-                    </script>
+                    
                 </div>
             </fieldset>
             
@@ -87,13 +74,5 @@
         <p>&copy; 2025 <a href="./pages/contacts.html" class="footer-link">Контакты</a></p>
     </footer>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Сообщение отправлено! (Это демо-версия)');
-            this.reset();
-        });
-
-    </script>
 </body>
 </html>

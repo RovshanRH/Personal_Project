@@ -21,14 +21,22 @@
   --transition: all 0.3s ease;
 }
 
+/* Сброс базовых отступов */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Или более мягкий вариант */
+body {
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
   height: 100%;
+  height: 100vh;
 }
 
 body {
@@ -38,6 +46,19 @@ body {
   color: var(--text-color);
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* align-self: center; */
+  width: 100%;
+  /* max-width: fit-content; */
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Header */
@@ -66,6 +87,8 @@ body {
 .site-header h1 {
   font-size: 1.75rem;
   font-weight: 600;
+  padding: 0 var(--space-md);
+  box-sizing: border-box;
 }
 
 /* Header logo */
@@ -77,21 +100,23 @@ body {
 
 /* Navigation */
 .main-nav {
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid var(--border-color);
-  border-top: 1px solid var(--border-color);
-  padding: var(--space-sm) 0;
-  margin-bottom: var(--space-lg);
-  position: sticky;
-  top: 0;
-  background: var(--bg-color);
-  z-index: 100;
-  gap: var(--space-lg);
-  padding-top: calc(var(--space-sm) + env(safe-area-inset-top, 0px));
-  padding-bottom: calc(var(--space-sm) + env(safe-area-inset-bottom, 0px));
-  padding-left: calc(var(--space-md) + env(safe-area-inset-left, 0px));
-  padding-right: calc(var(--space-md) + env(safe-area-inset-right, 0px));
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    padding: var(--space-sm) 0;
+    margin-bottom: var(--space-lg);
+    
+    position: sticky;
+    top: 0;
+    background: var(--bg-color);
+    z-index: 100;
+    
+    gap: var(--space-lg);
+    padding-top: calc(var(--space-sm) + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(var(--space-sm) + env(safe-area-inset-bottom, 0px));
+    padding-left: calc(var(--space-md) + env(safe-area-inset-left, 0px));
+    padding-right: calc(var(--space-md) + env(safe-area-inset-right, 0px));
 }
 
 .nav-link {
@@ -118,13 +143,13 @@ body {
   color: white;
 }
 /* Main content */
-main {
+/* Исправленный блок .container */
+.container {
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-.container {
+  justify-content: center;
+  /* align-items: center; */ /* ← раскомментируйте если нужно центрировать по горизонтали */
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -419,10 +444,19 @@ a, button, input, textarea {
 
 /* Крупные цели на устройствах с pointer:coarse */
 @media (pointer: coarse) {
-  a, button, .nav-link {
+  @media (pointer: coarse) {
+  
+  button, .nav-link, .btn {
     min-height: 44px;
     padding: var(--space-sm) var(--space-md);
   }
+  
+  /* Исключить карточки проектов */
+  .project-card a {
+    min-height: auto;
+    padding: 0;
+  }
+}
 }
 
 /* Responsive design */

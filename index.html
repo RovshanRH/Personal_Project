@@ -1,158 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Главная</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./styles/index.min.css" />
+    <link rel="stylesheet" href="./styles/style.min.css" />
+  </head>
 
-<head>
-  <title>Главная</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- <link rel="stylesheet" href="./styles/style.css">
-  <link rel="stylesheet" href="./styles/index.css"> -->
-  <link rel="stylesheet" href="./styles/bundle.min.css">
-</head>
-
-<body>
-  <a href="#main" class="skip-link">
-    <span class="icon" aria-hidden="true">&mapstodown;</span>
-    <span class="sr-only">Перейти к основному содержимому</span>
-  </a>
-  <header>
-    <div class="site-header">
-      <img src="../images/logo.png" alt="logo" class="header-logo" />
-      <h1>Ходжакулыев Ровшан Рашидович</h1>
-    </div>
+  <body>
+    <a href="#main" class="skip-link">
+      <span class="icon" aria-hidden="true">&mapstodown;</span>
+      <span class="sr-only">Перейти к основному содержимому</span>
+    </a>
+    <header>
+      <div class="site-header">
+        <!-- <img src="./images/logo.png" alt="logo" class="header-logo" /> -->
+        <picture>
+          <source srcset="./images/logo.webp" type="image/webp
+          class="header-logo">
+          <img src="./images/logo.png" alt="logo" class="header-logo" />
+        </picture>
+        <h1>Ходжакулыев Ровшан Рашидович</h1>
+      </div>
+    </header>
     <nav class="main-nav">
       <a class="nav-link" href="#" aria-current="page">Главная</a>
       <a class="nav-link" href="./pages/projects.html">Проекты</a>
       <a class="nav-link" href="../pages/diary.html">Дневник</a>
       <a class="nav-link" href="../pages/contacts.html">Контакты</a>
     </nav>
-  </header>
-
-
-  
-  <!-- Добавьте в начало body -->
-
-  <main>
-    <div class="container">
-      <h2 class="section-title">Обо мне</h2>
-      <div class="about-section">
-        <div class="about-content">
-          
-           <picture>
-            <source srcset="./images/photo.webp" type="image/webp">
-            <source media="(min-width: 1200px)" srcset="./images/1200_photo.webp" type="image/webp">
-            <source srcset="./images/photo.jpg" type="image/jpeg">
-            <img src="./images/photo.jpg" alt="фото" class="profile-image"/>
-           </picture>
-          <div class="about-text">
-            <p class="intro-text">
-              Привет! Меня зовут Ровшан Ходжакулыев, и я увлечен
-              веб-разработкой. На этом сайте я делюсь своими проектами,
-              дневником и контактной информацией.
-            </p>
-            <div class="button-group">
-              <button type="button" name="downloadResume" id="downloadResume" class="btn btn-primary">
-                Скачать резюме
-              </button>
+    <main>
+      <div class="container">
+        <h2 class="section-title">Обо мне</h2>
+        <div class="about-section">
+          <div class="about-content">
+            <picture>
+              <source srcset="./images/photo.webp" type="image/webp" />
+              <source
+                media="(min-width: 1200px)"
+                srcset="./images/1200_photo.webp"
+                type="image/webp"
+              />
+              <source srcset="./images/photo.jpg" type="image/jpeg" />
+              <img src="./images/photo.jpg" alt="фото" class="profile-image" />
+            </picture>
+            <div class="about-text">
+              <p class="intro-text">
+                Привет! Меня зовут Ровшан Ходжакулыев, и я увлечен
+                веб-разработкой. На этом сайте я делюсь своими проектами,
+                дневником и контактной информацией.
+              </p>
+              <div class="button-group">
+                <button
+                  type="button"
+                  name="downloadResume"
+                  id="downloadResume"
+                  class="btn btn-primary"
+                >
+                  Скачать резюме
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="skills-section">
-        <h2 class="section-title">Мои навыки</h2>
-        <div class="skills-container">
-          <!-- HTML/CSS -->
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>HTML/CSS</span>
-              <span class="skill-percent">90%</span>
+        <div class="skills-section">
+          <h2 class="section-title">Мои навыки</h2>
+          <div class="skills-container">
+            <!-- HTML/CSS -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>HTML/CSS</span>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%"></div>
+              </div>
             </div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 90%"></div>
-            </div>
-          </div>
 
-          <!-- JavaScript -->
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>JavaScript</span>
-              <span class="skill-percent">10%</span>
+            <!-- JavaScript -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>JavaScript</span>
+                <span class="skill-percent">10%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 10%"></div>
+              </div>
             </div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 10%"></div>
-            </div>
-          </div>
 
-          <!-- Bootstrap -->
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>Bootstrap</span>
-              <span class="skill-percent">5%</span>
+            <!-- Bootstrap -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>Bootstrap</span>
+                <span class="skill-percent">5%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 5%"></div>
+              </div>
             </div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 5%"></div>
-            </div>
-          </div>
 
-          <!-- React -->
-          <div class="skill-item">
-            <div class="skill-header">
-              <span>React</span>
-              <span class="skill-percent">5%</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 5%"></div>
+            <!-- React -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>React</span>
+                <span class="skill-percent">5%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 5%"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="projects-preview">
-        <h2 class="section-title">Мои проекты</h2>
-        <div class="projects-grid">
-
-          <a href="./pages/projects.html">
-            <div class="project-card">
-              <div class="card-content">
-                <h3 class="card-title">Сайт-портфолио</h3>
-                <img src="./images/project_1.webp" alt="1 проект" class="project-image">
+        <div class="projects-preview">
+          <h2 class="section-title">Мои проекты</h2>
+          <div class="projects-grid">
+            <a href="./pages/projects.html">
+              <div class="project-card">
+                <div class="card-content">
+                  <h3 class="card-title">Сайт-портфолио</h3>
+                  <!-- <img src="./images/project_1.webp" alt="1 проект" class="project-image"> -->
+                  <picture>
+                    <source
+                      srcset="./images/project_1.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="./images/project_1.jpg"
+                      alt="1 проект"
+                      class="project-image"
+                    />
+                  </picture>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
 
-          <a href="./pages/projects.html">
-            <div class="project-card">
-              <div class="card-content">
-                <h3 class="card-title">Калькулятор матриц</h3>
-                <img src="./images/project_2.webp" alt="2 проект" class="project-image">
+            <a href="./pages/projects.html">
+              <div class="project-card">
+                <div class="card-content">
+                  <h3 class="card-title">Калькулятор матриц</h3>
+                  <!-- <img src="./images/project_2.webp" alt="2 проект" class="project-image"> -->
+                  <picture>
+                    <source
+                      srcset="./images/project_2.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="./images/project_2.jpg"
+                      alt="2 проект"
+                      class="project-image"
+                    />
+                  </picture>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
 
-          <a href="./pages/projects.html">
-            <div class="project-card">
-              <div class="card-content">
-                <h3 class="card-title">Юмористическая страница для школы</h3>
-                <img src="./images/project_3.webp" alt="3 проект" class="project-image">
+            <a href="./pages/projects.html">
+              <div class="project-card">
+                <div class="card-content">
+                  <h3 class="card-title">Юмористическая страница для школы</h3>
+                  <!-- <img src="./images/project_3.webp" alt="3 проект" class="project-image"> -->
+                  <picture>
+                    <source
+                      srcset="./images/project_3.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="./images/project_3.jpg"
+                      alt="3 проект"
+                      class="project-image"
+                    />
+                  </picture>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <footer class="site-footer">
-    <p>&copy; 2025 <a href="./pages/contacts.html" class="footer-link">Контакты</a></p>
-  </footer>
-
-
-  <script>
-    document.getElementById('downloadResume').addEventListener('click', function () {
-      window.print();
-    });
-  </script>
-</body>
-
+    <footer class="site-footer">
+      <p>
+        &copy; 2025
+        <a href="./pages/contacts.html" class="footer-link">Контакты</a>
+      </p>
+    </footer>
+  </body>
 </html>
