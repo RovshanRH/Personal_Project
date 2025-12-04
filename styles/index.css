@@ -84,33 +84,57 @@
 }
 
 /* Projects preview section */
+/* Projects preview section */
 .projects-preview {
   margin: var(--space-xl) 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: var(--space-md); /* уменьшить padding */
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md); /* уменьшить отступы */
   width: 100%;
-  max-width: 900px;
+  max-width: 100%; /* убрать фиксированное ограничение */
 }
 
-@media (min-width: 768px) {
+/* Планшет */
+@media (min-width: 640px) and (max-width: 1023px) {
   .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
   }
 }
 
+/* Десктоп */
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+/* Маленькие экраны */
+@media (max-width: 639px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
 .project-card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
+}
+
+.project-card a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .project-card:hover {
@@ -127,6 +151,7 @@
   margin-bottom: var(--space-md);
   font-size: 1.125rem;
   font-weight: 600;
+  color: var(--text-color);
 }
 
 .project-image {
