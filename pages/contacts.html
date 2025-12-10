@@ -5,11 +5,8 @@
     <title>Контакты</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <link rel="stylesheet" href="../styles/style.css" />
-    <link rel="stylesheet" href="../styles/contacts.css" /> -->
-    <!-- <link rel="stylesheet" href="../styles/bundle.min.css"> -->
     <link rel="stylesheet" href="../styles/contacts.min.css">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/style.min.css">
     <script src="../scripts/contacts.js" defer></script>
 
 
@@ -19,7 +16,8 @@
 <body>
     <header>
         <div class="site-header">
-            <img src="../images/logo.png" alt="logo" class="header-logo" />
+            <img src="../images/logo.png" alt="Лого" class="header-logo" width="200" height="200"
+            loading="lazy"/>
             <h1>Ходжакулыев Ровшан Рашидович</h1>
         </div>
     </header>
@@ -39,15 +37,16 @@
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name" class="form-label">Имя</label>
-                            <input type="text" class="form-control" id="name" placeholder="Имя пользователя" required aria-invalid="true" />
+                            <input type="text" class="form-control" id="name"
+                            name="name" placeholder="Имя пользователя" required aria-invalid="true" />
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="example@mail.com" required aria-describedby="emailHelp" aria-invalid="true" />
+                            <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" required aria-describedby="emailHelp" aria-invalid="true" />
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Сообщение</label>
-                            <textarea class="form-control" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
+                            <textarea class="form-control" id="message" name="message" rows="3" placeholder="Ваше сообщение"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-center">Отправить</button>
                     </form>
