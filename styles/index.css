@@ -91,6 +91,9 @@
   flex-direction: column;
   align-items: center;
   padding: var(--space-md); /* уменьшить padding */
+
+  container-type: inline-size;
+  container-name: projects-preview;
 }
 
 .projects-grid {
@@ -130,6 +133,7 @@
   box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
+  padding: 1rem;
 }
 
 .project-card a {
@@ -155,7 +159,28 @@
 }
 
 .project-image {
-  width: 100%;
-  height: auto;
+  /* width: 100%;
+  height: auto; */
   border-radius: var(--border-radius);
+}
+
+@container projects-container (min-width: 800px) {
+  .project-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .project-card img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* 4. Когда контейнер очень широкий (>1200px) */
+@container projects-container (min-width: 1200px) {
+  .project-card {
+    padding: 3rem;
+    font-size: 1.1rem;
+  }
 }

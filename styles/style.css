@@ -175,6 +175,8 @@ img {
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  /* flex-direction: column; */
+  /* align-self: flex-end; */
 }
 
 .btn-primary {
@@ -225,11 +227,15 @@ img {
 
 .card-content {
   padding: var(--space-md);
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; */
 }
 
 .card-text {
   line-height: 1.6;
   margin-bottom: var(--space-md);
+  margin-top: 10px;
 }
 
 /* Forms */
